@@ -1,0 +1,570 @@
+*
+{
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+:root 
+{
+    --li-scale: 1.25;
+    --li-scale-adj: 0.2;
+    --li-pb: 0.25em;
+}
+
+.content-all
+{
+    background-color: #4e54c8;  
+}
+
+li,ul
+{
+    list-style: none;
+}
+
+a
+{
+     text-decoration: none;
+}
+
+.nav-box,
+.menu-box ul
+{
+    display: flex;
+}
+
+.nav-box
+{
+    background-color: rgb(255, 255, 255);
+    mix-blend-mode: screen;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    padding: 8px;
+    position: fixed;
+    left: 1%;
+    top: 1%;
+    width: 98%;
+    z-index: 999;
+}
+
+.logo-area
+{
+  display: flex;
+}
+
+.logo-area img
+{
+  width: 30px;
+  height: 30px;
+  filter: contrast(3);
+}
+
+.logo-area h1
+{
+    font-size: 25px;
+}
+
+.menu-box ul
+{
+    gap: 60px;
+}
+
+.menu-box button
+{
+    border: none;
+    font-weight: bolder;
+    font-size: 25px;
+    background-color: transparent;
+    padding: 8px;
+    position: relative;
+    &:hover
+    {
+        background-color: black;
+        color: white;
+        transition: all 1s;
+    }
+}
+.menu-box span
+{
+ position: absolute;
+}
+
+.menu-box span:nth-child(1),
+.menu-box span:nth-child(3)
+{
+   width: 94%;
+   height: 3px;
+   background-color: white;
+}
+
+.menu-box span:nth-child(1)
+{
+   top: 2px;
+   left: 2px;
+   transform-origin: left;
+   transform: scaleX(0);
+}
+
+.menu-box span:nth-child(3)
+{
+   bottom: 2px;
+   left: 2px;
+   transform-origin: right;
+   transform: scaleX(0);
+}
+
+.menu-box button:hover span:nth-child(1)
+{
+  transform: scaleX(1);
+  transition: 0.2s;
+  transition-delay: 0s;
+}
+
+.menu-box button:hover span:nth-child(3)
+{
+  transform: scaleX(1);
+  transition: 0.2s;
+  transition-delay: 0.4s;
+}
+
+.menu-box span:nth-child(2),
+.menu-box span:nth-child(4)
+{
+   width: 3px;
+   height: 90%;
+   border-bottom:0px;
+   background-color: white;
+}
+
+.menu-box span:nth-child(2)
+{
+   top: 2px;
+   right: 2px;
+   transform-origin: top;
+   transform: scaleY(0);
+}
+
+.menu-box span:nth-child(4)
+{
+   bottom: 2px;
+   left: 2px;
+   transform-origin: bottom;
+   transform: scaleY(0);
+}
+
+.menu-box button:hover span:nth-child(2)
+{
+  transform: scaleY(1);
+  transition: 0.2s;
+  transition-delay: 0.2s;
+}
+
+.menu-box button:hover span:nth-child(4)
+{
+  transform: scaleY(1);
+  transition: 0.2s;
+  transition-delay: 0.6s;
+}
+#hamburger 
+{
+    width: 39px;
+    overflow: hidden;
+    display: none;
+}
+  
+#menu_checkbox
+{
+   display: none;
+}
+#menu_label 
+{
+    position: relative;
+    display: block;
+    height: 29px;
+    cursor: pointer;
+}
+  
+#menu_label::before,
+#menu_label::after,
+#menu_text_bar
+{
+   position: absolute;
+   left: 0;
+   width: 100%;
+   height: 5px;
+   background-color: black;
+}
+  
+#menu_label::before,
+#menu_label::after 
+{
+   content: "";
+   transition: 0.4s ;
+}
+  
+#menu_label::before 
+{
+   top: 0;
+}
+  
+#menu_label::after 
+{
+   top: 12px;
+}
+  
+#menu_text_bar 
+{
+   top: 24px;
+}
+  
+#menu_text_bar::before 
+{
+   content: "MENU";
+   position: absolute;
+   top: 5px;
+   right: 2px;
+   color:rgb(0, 255, 60);
+   font-size: 12px;
+   font-weight: bold;
+   font-family: "Montserrat", Arial, Helvetica, sans-serif;
+   text-align: center;
+}
+  
+  #menu_checkbox:checked + #menu_label::before 
+  {
+    left: -39px;
+  }
+  
+  #menu_checkbox:checked + #menu_label::after 
+  {
+    left: 39px;
+  }
+  #hamburger:has(#menu_checkbox:checked)~#menu_lis  
+  {
+    right: 5%;
+  }
+  .nav-box:has(#menu_checkbox:checked)~.main-area
+  {
+  padding-top: 390px;
+  }
+  #menu_checkbox:checked + #menu_label #menu_text_bar::before 
+  {
+    animation: moveUpThenDown 0.8s ease 0.2s forwards,
+               shakeWhileMovingUp 0.8s ease 0.2s forwards,
+               shakeWhileMovingDown 0.2s ease 0.8s forwards;
+  }
+  
+  @keyframes moveUpThenDown 
+  {
+    0% {
+      top: 0;
+    }
+  
+    50% {
+      top: -27px;
+    }
+  
+    100% {
+      top: -14px;
+    }
+  }
+  
+  @keyframes shakeWhileMovingUp 
+  {
+    0% 
+    {
+      transform: rotateZ(0);
+    }
+  
+    25% 
+    {
+      transform: rotateZ(-10deg);
+    }
+  
+    50% 
+    {
+      transform: rotateZ(0deg);
+    }
+  
+    75% 
+    {
+      transform: rotateZ(10deg);
+    }
+  
+    100% 
+    {
+      transform: rotateZ(0);
+    }
+  }
+  
+  @keyframes shakeWhileMovingDown 
+  {
+    0% 
+    {
+      transform: rotateZ(0);
+    }
+  
+    80% 
+    {
+      transform: rotateZ(3deg);
+    }
+  
+    90% 
+    {
+      transform: rotateZ(-3deg);
+    }
+  
+    100% 
+    {
+      transform: rotateZ(0);
+    }
+  }
+  
+#menu_lis li
+{
+     animation-name: nav-lis;
+     animation-duration: 1s;
+     animation-fill-mode: backwards;
+}
+
+#menu_lis li:nth-child(2)
+{
+  animation-delay: 200ms;
+}
+
+#menu_lis li:nth-child(3)
+{
+  animation-delay: 300ms;
+}
+
+#menu_lis li:nth-child(4)
+{
+  animation-delay: 400ms;
+}
+
+@keyframes nav-lis
+{
+     from
+     {
+          transform: translateY(100%);
+     }
+     to
+     {
+          transform: translateY(0%);
+     }
+}
+
+.main-area
+{
+  padding: 100px 50px 30px ;
+}
+
+.main-area div
+{
+  background-color: rosybrown;
+  padding: 50px;
+  color: white;
+  border-radius: 94% 6% 95% 5% / 5% 89% 11% 95% ;
+}
+
+.main-area h1
+{
+  font-size: 70px;
+  color: #4e54c8;
+  padding: 25px;
+}
+
+.main-area p
+{
+  padding: 20px;
+  font-size: 28px;
+}
+
+.footer-area
+{
+  width: 100%;
+  padding: 13px 20px;
+  background-color:#ffffff8c;
+  opacity: 0.91;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 00.25);
+  backdrop-filter: blur(10px);
+}
+
+
+.f-area-1
+{
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.footer-content
+{
+  width: 33.3%;
+}
+
+.footer-content h3
+{
+  font-size: 28px;
+  text-align: center;
+}
+
+.footer-content p
+{
+  padding: 7px;
+  text-align: center;
+}
+
+.footer-content ul
+{
+  text-align: center;
+}
+
+.list
+{
+  padding: 0;
+}
+
+.list li
+{
+  text-align: center;
+  list-style-type:none;
+  padding: 7px;
+  position: relative;
+}
+
+.list li::before
+{
+  content: '';
+  position: absolute;
+  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 100%;
+  width: 0;
+  height: 2px;
+  background: #f18930;
+  transition-duration: .5s;
+}
+
+.list li:hover::before
+{
+  width: 70px;
+}
+
+.social-icons
+{
+  text-align: center;
+  padding: 0;
+}
+
+.social-icons li
+{
+  display: inline-block;
+  text-align: center;
+  padding: 5px;
+}
+
+.social-icons i
+{
+  color: black;
+  font-size: 25px;
+}
+
+.footer-area a
+{
+  color: black;
+}
+.footer-area a:hover
+{
+  color: #f18930;
+}
+
+.social-icons i:hover
+{
+  color: #f18930;
+}
+
+.bottom-bar
+{
+  background: #f18930;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.bottom-bar p
+{
+  color: #343434;
+  margin: 0;
+  font-size: 16px;
+  padding: 7px;
+}
+
+@media only screen and (min-width:300px) and (max-width:800px)
+{
+    .nav-box
+    {
+        padding-right: 20px;
+    }
+
+    
+    #hamburger
+    {
+        display: block;
+    }
+
+    .menu-box 
+    {
+        background-color: white;
+        border-radius: 2px;
+        width: 90%;
+        padding: 30px 0px;
+        position: absolute;
+        top: 100px;
+        right: -150%;
+    }   
+
+    .menu-box ul 
+    {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .menu-box li 
+    {
+        transition: all  180ms;
+        transition-delay: 20ms;
+    }
+
+    .menu-box li:hover
+    {
+        --li-pb: 0.75em;
+        scale: var(--li-scale);
+    }
+    
+    /* Select list item before the hovered one */
+    .menu-box li:has(+ li:hover),
+    /* Select list item after the hovered one */
+    .menu-box li:hover + li
+    {
+        --li-pb: 0.15em;
+        scale: calc(var(--li-scale) - var(--li-scale-adj));
+        opacity: 0.85;
+    }
+   
+    /* When a list item is being hovered,
+    select list items not hovered, or before/after hover */
+   .menu-box ul:has( :hover) li:not(:hover, :has(+ li:hover), li:hover + li)
+    {
+      scale: calc(1 - var(--li-scale-adj));
+      opacity: 0.75;
+    }
+    
+    #menu_lis 
+    {
+        transition: all 1s;
+    }
+}
