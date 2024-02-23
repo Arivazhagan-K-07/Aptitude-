@@ -625,24 +625,17 @@ a
   }
 }
 
-.footer-area
-{
+.footer-area {
   width: 100%;
   padding: 13px 20px;
-  background-color:#ffffff8c;
+  background-color: #ffffff8c;
   opacity: 0.91;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 00.25);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
+  color: white;
 }
 
-/* .footer-area
-{
-  background: #343434;
-  padding-top: 50px;
-} */
-
-.f-area-1
-{
+.f-area-1 {
   width: 100%;
   margin: auto;
   display: flex;
@@ -650,102 +643,87 @@ a
   flex-wrap: wrap;
 }
 
-.footer-content
-{
+.footer-content {
   width: 33.3%;
 }
 
-.footer-content h3
-{
+.footer-content h3 {
   font-size: 28px;
   text-align: center;
 }
 
-.footer-content p
-{
+.footer-content p {
   padding: 7px;
   text-align: center;
 }
 
-.footer-content ul
-{
+.footer-content ul {
   text-align: center;
 }
 
-.list
-{
+.list {
   padding: 0;
 }
 
-.list li
-{
+.list li {
   text-align: center;
-  list-style-type:none;
+  list-style-type: none;
   padding: 7px;
   position: relative;
 }
 
-.list li::before
-{
+.list li::before {
   content: '';
   position: absolute;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 100%;
   width: 0;
   height: 2px;
-  background: #f18930;
+  background: black;
   transition-duration: .5s;
 }
 
-.list li:hover::before
-{
+.list li:hover::before {
   width: 70px;
 }
 
-.social-icons
-{
+.social-icons {
   text-align: center;
   padding: 0;
 }
 
-.social-icons li
-{
+.social-icons li {
   display: inline-block;
   text-align: center;
   padding: 5px;
 }
 
-.social-icons i
-{
-  color: black;
+.social-icons i {
+  color: white;
   font-size: 25px;
 }
 
-.footer-area a
-{
+.footer-area a {
+  color: white;
+}
+
+.footer-area a:hover {
   color: black;
 }
-.footer-area a:hover
-{
-  color: #f18930;
+
+.social-icons i:hover {
+  color: black;
 }
 
-.social-icons i:hover
-{
-  color: #f18930;
-}
-
-.bottom-bar
-{
-  background: #f18930;
+.bottom-bar {
+  background: #4e54c8;
   text-align: center;
   padding: 10px 0;
 }
 
-.bottom-bar p
-{
-  color: #343434;
+.bottom-bar p {
+  color: white;
   margin: 0;
   font-size: 16px;
   padding: 7px;
